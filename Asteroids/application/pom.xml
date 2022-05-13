@@ -117,6 +117,13 @@
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>../../bin</outputDirectory>
+                    <installerOsLinux>true</installerOsLinux>
+                    <installerOsSolaris>false</installerOsSolaris>
+                    <installerOsMacosx>false</installerOsMacosx>
+                    <installerOsWindows>false</installerOsWindows>
+                </configuration>
             </plugin>
             <!-- Permits NbModuleSuite to be run in integration-test phase: -->
             <plugin>
