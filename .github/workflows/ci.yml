@@ -18,7 +18,7 @@ jobs:
           java-version: "8"
           distribution: "adopt"
       - name: Install
-        run: make install
+        run: mvn install -DskipTests -f Asteroids/SilentUpdate/pom.xml
   test:
     runs-on: ubuntu-latest
 
