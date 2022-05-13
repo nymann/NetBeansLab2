@@ -17,13 +17,11 @@ jobs:
         with:
           java-version: "8"
           distribution: "adopt"
-      - name: Install
-        run: |
-          mvn install -DskipTests -f Asteroids/SilentUpdate/pom.xml
-          mvn install -DskipTests -f Asteroids/Common/pom.xml
-          mvn install -DskipTests -f Asteroids/BulletCommon/pom.xml
-          mvn install -DskipTests -f Asteroids/Asteroid/pom.xml
-          mvn install -DskipTests -f Asteroids/CollisionDetection/pom.xml
+      - name: SilentUpdate
+        run: mvn install -DskipTests -f Asteroids/SilentUpdate/pom.xml
+      - name: Common
+        run: mvn install -DskipTests -f Asteroids/Common/pom.xml
+
   test:
     runs-on: ubuntu-latest
 
