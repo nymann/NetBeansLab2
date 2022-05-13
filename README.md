@@ -1,6 +1,6 @@
-# NetBeansLab1
+# NetBeansLab2
 
-![demo](https://user-images.githubusercontent.com/7005867/168170246-a584b7e1-93bc-4291-808e-18f23e190236.gif)
+https://user-images.githubusercontent.com/7005867/168393245-33049515-d750-43de-98c9-f73cd8eee775.mp4
 
 ### Running the game
 
