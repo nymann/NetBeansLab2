@@ -1,4 +1,4 @@
-name: Test
+name: Install
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,5 @@ jobs:
         with:
           java-version: "8"
           distribution: "adopt"
-      - name: Maven test
-        run: |
-          make install
-          make test
+      - name: Install (skip tests)
+        run: make install
