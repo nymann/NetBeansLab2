@@ -14,7 +14,7 @@ test: ${JAVA_FILES}
 	mvn test -f ${COMPONENT}/pom.xml
 
 ${BIN}: ${JAVA_FILES} ${POM_FILES}
-	mvn install -DskipTests -f ${COMPONENT}/pom.xml
+	mvn -Pdeployment install -DskipTests -f ${COMPONENT}/pom.xml
 
 install: ${BIN}
 

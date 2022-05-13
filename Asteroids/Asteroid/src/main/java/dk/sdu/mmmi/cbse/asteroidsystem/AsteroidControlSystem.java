@@ -27,29 +27,7 @@ public class AsteroidControlSystem implements IEntityProcessingService {
             movingPart.setUp(random.nextBoolean());
             movingPart.process(gameData, asteroid);
             positionPart.process(gameData, asteroid);
-
-            updateShape(asteroid);
         }
-    }
-
-    private void updateShape(Entity entity) {
-        float[] shapex = entity.getShapeX();
-        float[] shapey = entity.getShapeY();
-        int vertices = shapex.length;
-        PositionPart positionPart = entity.getPart(PositionPart.class);
-        float x = positionPart.getX();
-        float y = positionPart.getY();
-        float radius = entity.getRadius();
-        float angle = positionPart.getRadians();
-
-        for (int i = 0; i < vertices; i++) {
-            shapex[i] = (float) (x + Math.cos(angle) * radius);
-            shapey[i] = (float) (y + Math.sin(angle) * radius);
-            angle += (float) (Math.PI * 2 / vertices);
-        }
-
-        entity.setShapeX(shapex);
-        entity.setShapeY(shapey);
     }
 
 }
