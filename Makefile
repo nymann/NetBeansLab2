@@ -9,14 +9,14 @@ SILENT_UPDATE_BUNDLE="Asteroids/SilentUpdate/src/main/resources/org/netbeans/mod
 default all:run 
 
 ${SILENT_UPDATE_BUNDLE}:
-	sed -i "s#update_center=.*#update_center=file:///$(CURDIR)\/bin\/netbeans_site/updates.xml#" ${SILENT_UPDATE_BUNDLE}
+	@sed -i "s#update_center=.*#update_center=file:///$(CURDIR)\/bin\/netbeans_site/updates.xml#" ${SILENT_UPDATE_BUNDLE}
 
 fix-bundle-path: ${SILENT_UPDATE_BUNDLE}
 
 clean:
 	mvn clean -f ${COMPONENT}/pom.xml
 
-test: ${JAVA_FILES}
+test: fix-bundle-path ${JAVA_FILES}
 	mvn test -f ${COMPONENT}/pom.xml
 
 ${BIN}: ${JAVA_FILES} ${POM_FILES}

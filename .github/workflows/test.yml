@@ -17,5 +17,7 @@ jobs:
         with:
           java-version: "8"
           distribution: "adopt"
-      - name: Maven package
-        run: make test
+      - name: Maven test
+        run: |
+          make install
+          make test
