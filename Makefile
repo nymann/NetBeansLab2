@@ -18,7 +18,7 @@ ${BIN}: ${JAVA_FILES} ${POM_FILES}
 
 install: ${BIN}
 
-run:
+run: ${BIN}
 	mvn nbm:run-platform -f ${COMPONENT}/application/pom.xml
 
 ${LINUX_BIN}: ${JAVA_FILES} ${POM_FILES}

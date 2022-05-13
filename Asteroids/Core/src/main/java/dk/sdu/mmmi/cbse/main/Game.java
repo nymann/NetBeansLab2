@@ -4,13 +4,13 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import dk.sdu.mmmi.cbse.common.shape.IShapeRender;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 import dk.sdu.mmmi.cbse.common.services.IPostEntityProcessingService;
+import dk.sdu.mmmi.cbse.common.shape.IShapeRender;
 import dk.sdu.mmmi.cbse.managers.GameInputProcessor;
 import org.openide.util.Lookup;
 
@@ -21,7 +21,6 @@ public class Game implements ApplicationListener {
     private final GameData gameData = new GameData();
     private final World world = new World();
     private final Lookup lookup = Lookup.getDefault();
-    private Collection<? extends IPostEntityProcessingService> postEntityProcessingServices;
     private Collection<? extends IEntityProcessingService> entityProcessingServices;
     private IShapeRender sr;
 
@@ -43,7 +42,6 @@ public class Game implements ApplicationListener {
             iGamePlugin.start(gameData, world);
         }
         entityProcessingServices = getEntityProcessingServices();
-        postEntityProcessingServices = getPostEntityProcessingServices();
     }
 
     @Override
@@ -64,7 +62,7 @@ public class Game implements ApplicationListener {
         for (IEntityProcessingService entityProcessorService : entityProcessingServices) {
             entityProcessorService.process(gameData, world);
         }
-        for (IPostEntityProcessingService postEntityProcessorService : postEntityProcessingServices) {
+        for (IPostEntityProcessingService postEntityProcessorService : getPostEntityProcessingServices()) {
             postEntityProcessorService.process(gameData, world);
         }
     }
